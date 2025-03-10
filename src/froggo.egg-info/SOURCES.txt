@@ -1,0 +1,8 @@
+froggo.py
+setup.py
+froggo.egg-info/PKG-INFO
+froggo.egg-info/SOURCES.txt
+froggo.egg-info/dependency_links.txt
+froggo.egg-info/entry_points.txt
+froggo.egg-info/requires.txt
+froggo.egg-info/top_level.txt
