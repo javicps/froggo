@@ -5,7 +5,7 @@ description = "A CLI tool for Frogtek daily infrastructure needs"
 authors = [
     {name = "javicps",email = "javicps@gmail.com"}
 ]
-readme = "README.md"
+readme = "../README.md"
 requires-python = ">=3.13"
 dependencies = [
     "click (>=8.1.8,<9.0.0)"
