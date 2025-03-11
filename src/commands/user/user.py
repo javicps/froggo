@@ -9,8 +9,11 @@ def user():
 
 @user.command()
 def create():
-    """Provision Aurora Databases for development"""
+    """Provision AWS user for development"""
     click.echo(f'Creating new user...')
     if not run_terraform_command("user", "init"):
+        pass
+
+    if not run_terraform_command("user", "apply -auto-approve"):
         return
-    pass
+    print(f"User created successfully!")

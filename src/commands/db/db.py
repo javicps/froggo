@@ -13,13 +13,11 @@ def up(target_db_identifier):
     """Provision Aurora Database for development"""
     click.echo(f'Provisioning a new DB...')
 
-    if not run_terraform_command("db", "init"):
-        print(f"✅ {target_db_identifier} database created successfully!")
-        return
+    run_terraform_command("db", "init")
     if not run_terraform_command("db", "plan"):
         return
 
-    click.echo(f'DB provisioned...')
+    print(f"Database {target_db_identifier} created successfully!")
 
     pass
 
@@ -33,6 +31,6 @@ def down(target_db_identifier):
         return
     if not run_terraform_command("db", "destroy -auto-approve"):
         return
-    print(f"✅ {target_db_identifier} database destroyed successfully!")
+    print(f"Database {target_db_identifier} destroyed successfully!")
 
     pass

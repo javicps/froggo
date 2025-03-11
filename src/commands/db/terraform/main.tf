@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_rds_cluster" "source_db" {
-  cluster_identifier  = "source-db-cluster"
+  cluster_identifier  = "frog-database"
   engine              = "aurora-mysql"
   master_username     = "root"
   master_password     = "password"
