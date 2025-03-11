@@ -5,7 +5,7 @@ description = "A CLI tool for Frogtek daily infrastructure needs"
 authors = [
     {name = "javicps",email = "javicps@gmail.com"}
 ]
-readme = "../README.md"
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "click (>=8.1.8,<9.0.0)"
@@ -17,3 +17,23 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 froggo = "froggo:cli"
+
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310']
+skip-magic-trailing-comma = true
+skip-string-normalization = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
