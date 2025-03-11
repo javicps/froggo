@@ -2,6 +2,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+
 module "defaults" {
   source = "../"
 
@@ -11,9 +12,6 @@ module "defaults" {
 module "extra_tags" {
   source = "../"
 
-  extra_tags = {
-    Product = "foo"
-  }
 }
 /*
 resource "aws_rds_cluster" "development" {

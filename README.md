@@ -1,26 +1,36 @@
 # Froggo
 
-Froggo is a CLI tool
+Froggo is a CLI tool to provision infrastructure resources. It can
 
 ## Install
 
-Go to /src
+1. Install and configure <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">Terraform</a>
 
-```shell
-pip install --editable .
-```
+2. Install the Froggo executable
 
-## db up
+   ```shell
+   pip install --editable .
+   ```
 
-Usage:
+## Database commands (db)
+
+### db up
+
+Clones a production Aurora DB database in development
 
 ```shell
 froggo db up
 ```
 
-## db down
+You can optionally pass the database name:
 
-Usage:
+```shell
+froggo db up mydb
+```
+
+### db down
+
+Destroys a development Aurora DB database
 
 ```shell
 froggo db down
