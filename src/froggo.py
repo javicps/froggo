@@ -1,4 +1,5 @@
 import click
+from commands.aurora.aurora import aurora
 from commands.db.db import db
 from commands.user.user import user
 
@@ -11,6 +12,7 @@ def cli():
 
 cli.add_command(db)
 cli.add_command(user)
+cli.add_command(aurora)
 
 if __name__ == "__main__":
     cli()

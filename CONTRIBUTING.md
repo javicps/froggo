@@ -19,7 +19,9 @@ If you want to create a new command for Froggo, follow the next steps:
 
     ```
 
-3.  Add the group as a command in froggo.py
+3.  Inside the command you can use methods from aws.py, like init_and_apply or init_and_destroy to execute terraform resources
+
+4.  Add the group as a command in froggo.py
 
     ```python
     cli.add_command(newGroup)

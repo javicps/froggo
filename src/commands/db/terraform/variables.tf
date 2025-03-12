@@ -19,13 +19,14 @@ variable "target_db_identifier" {
   type        = string
 }
 
-variable "db_instance_class" {
-  description = "Instance type for the Aurora database"
-  type        = string
-  default     = "db.r6g.large"
+variable "db_name" {
+  default = "prod"
 }
 
-variable "vpc_security_group_ids" {
-  description = "List of security group IDs"
-  type        = list(string)
+variable "db_user" {
+  default = "admin"
+}
+
+variable "db_password" {
+  default = "Froggotest1234!"
 }

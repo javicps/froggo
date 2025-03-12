@@ -1,5 +1,5 @@
 import click
-from aws.aws import run_terraform_command
+from aws.aws import init_and_apply, init_and_destroy
 
 
 @click.group()
@@ -8,29 +8,24 @@ def db():
 
 
 @db.command()
-@click.argument("target_db_identifier", default="dev", required=False)
-def up(target_db_identifier):
+@click.option('-n', '--name', default='dev', required=False)
+def up(name):
     """Provision Aurora Database for development"""
     click.echo(f'Provisioning a new DB...')
 
-    run_terraform_command("db", "init")
-    if not run_terraform_command("db", "plan"):
+    if not init_and_apply('db'):
         return
 
-    print(f"Database {target_db_identifier} created successfully!")
-
-    pass
+    print(f'Database {name} created successfully!')
 
 
 @db.command()
-@click.argument('target_db_identifier', default='dev', required=False)
-def down(target_db_identifier):
+@click.option('-n', '--name', default='dev', required=False)
+def down(name):
     """Destroys Aurora Database for development"""
     click.echo(f'Destroying the DB...')
-    if not run_terraform_command("db", "init"):
-        return
-    if not run_terraform_command("db", "destroy -auto-approve"):
-        return
-    print(f"Database {target_db_identifier} destroyed successfully!")
 
-    pass
+    if not init_and_destroy('db'):
+        return
+
+    print(f'Database {name} destroyed successfully!')

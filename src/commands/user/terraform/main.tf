@@ -4,5 +4,5 @@ provider "aws" {
 
 
 resource "aws_iam_user" "demouser" {
-  name = "froggouser"
+  name = var.username
 }
