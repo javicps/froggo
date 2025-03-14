@@ -4,19 +4,16 @@ variable "aws_region" {
   default     = "eu-west-1"
 }
 
-variable "aws_profile" {
-  description = "AWS profile to use for authentication"
-  type        = string
-}
-
-variable "source_db_snapshot" {
-  description = "Source Aurora DB snapshot ID"
-  type        = string
-}
-
 variable "target_db_identifier" {
   description = "Identifier for the new development Aurora DB"
   type        = string
+  default     = "cluster"
+}
+
+variable "origin_db_identifier" {
+  description = "Identifier for the source development Aurora DB"
+  type        = string
+  default     = "frogdb"
 }
 
 variable "db_name" {
@@ -28,5 +25,5 @@ variable "db_user" {
 }
 
 variable "db_password" {
-  default = "Froggotest1234!"
+  default = "password"
 }

@@ -8,7 +8,7 @@ def user():
 
 
 @user.command()
-@click.option('-n', '--name', default='dev', required=False)
+@click.option('-n', '--name', required=True)
 def create(name):
     """Provision AWS user for development"""
     click.echo(f'Creating new user...')
@@ -20,7 +20,7 @@ def create(name):
 
 
 @user.command()
-@click.option('-n', '--name', default='dev', required=False)
+@click.option('-n', '--name', required=True)
 def delete(name):
     """Deletes AWS user for development"""
     click.echo(f'Deleting user...')

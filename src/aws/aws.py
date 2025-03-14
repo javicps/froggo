@@ -14,9 +14,7 @@ def run_terraform_command(group, command, variables=None):
     print(f"Running: {' '.join(command_list)} in {TERRAFORM_DIR.format(group=group)}")
 
     try:
-        result = subprocess.run(
-            command_list, cwd=TERRAFORM_DIR.format(group=group), capture_output=True, text=True, check=True
-        )
+        result = subprocess.run(command_list, cwd=TERRAFORM_DIR.format(group=group), stderr=None, stdout=None)
     except subprocess.CalledProcessError as e:
         print(f"CalledProcessError executing Terraform command: {e.stderr}")
         return False

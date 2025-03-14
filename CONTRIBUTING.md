@@ -26,3 +26,18 @@ If you want to create a new command for Froggo, follow the next steps:
     ```python
     cli.add_command(newGroup)
     ```
+
+## TODO and new features
+
+Upcoming features and nice-to-haves:
+
+- "froggo db up" should allow creating multiple instances. We can store in a local file all current identifiers for the aurora dbs, then in the terraform file use:
+
+```
+  for_each             = var.clone_list
+  cluster_identifier   = "dev-${each.key}"
+```
+
+- Explore using <a href="https://aws.amazon.com/es/sdk-for-python/">boto3</a> as this could be a much faster way of handling AWS resources than Terraform.
+
+- Add a "froggo db list" command to list all current aurora db instances created by the current user.
